@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "projects": {
+    "nodejs-pet-project": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/nodejs-pet-project",
+      "sourceRoot": "apps/nodejs-pet-project/src",
+      "prefix": "nodejs-pet-project",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/nodejs-pet-project",
+            "index": "apps/nodejs-pet-project/src/index.html",
+            "main": "apps/nodejs-pet-project/src/main.ts",
+            "polyfills": "apps/nodejs-pet-project/src/polyfills.ts",
+            "tsConfig": "apps/nodejs-pet-project/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/nodejs-pet-project/src/favicon.ico",
+              "apps/nodejs-pet-project/src/assets"
+            ],
+            "styles": ["apps/nodejs-pet-project/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/nodejs-pet-project/src/environments/environment.ts",
+                  "with": "apps/nodejs-pet-project/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "nodejs-pet-project:build",
+            "proxyConfig": "apps/nodejs-pet-project/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "nodejs-pet-project:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "nodejs-pet-project:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/nodejs-pet-project/tsconfig.app.json",
+              "apps/nodejs-pet-project/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/nodejs-pet-project/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/nodejs-pet-project/jest.config.js",
+            "tsConfig": "apps/nodejs-pet-project/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/nodejs-pet-project/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "nodejs-pet-project-e2e": {
+      "root": "apps/nodejs-pet-project-e2e",
+      "sourceRoot": "apps/nodejs-pet-project-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/nodejs-pet-project-e2e/cypress.json",
+            "tsConfig": "apps/nodejs-pet-project-e2e/tsconfig.e2e.json",
+            "devServerTarget": "nodejs-pet-project:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "nodejs-pet-project:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/nodejs-pet-project-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/nodejs-pet-project-e2e/**"]
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/api/tsconfig.app.json",
+              "apps/api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "tsConfig": "apps/api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-interfaces": {
+      "root": "libs/api-interfaces",
+      "sourceRoot": "libs/api-interfaces/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/api-interfaces/tsconfig.lib.json",
+              "libs/api-interfaces/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api-interfaces/jest.config.js",
+            "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "7faef850-e517-4e60-a2d4-a1ff972884b7"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "nodejs-pet-project"
+}
