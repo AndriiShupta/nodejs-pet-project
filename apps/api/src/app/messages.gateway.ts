@@ -21,6 +21,13 @@ export class MessagesGateway {
       map(() => ({ event: 'messages', data: { message: getMessage() } }))
     );
   }
+
+  @SubscribeMessage('logs')
+  logs(): Observable<WsResponse<Message>> {
+    return interval(1000).pipe(
+      map(() => ({ event: 'logs', data: { message: getMessage() } }))
+    );
+  }
 }
 
 function getMessage() {

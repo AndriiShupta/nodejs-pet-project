@@ -1,0 +1,10 @@
+.console {
+  display: inline-block;
+  width: 90%;
+  height: calc(100vh - 100px);
+  color: white;
+  background-color: black;
+  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+  font-size: medium;
+  overflow: scroll;
+}

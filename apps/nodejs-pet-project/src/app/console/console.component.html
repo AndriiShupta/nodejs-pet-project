@@ -1,0 +1,7 @@
+<div fxLayoutAlign="center">
+<pre class="console">
+Last login: {{ lastLogin }}
+<!--  todo: do track by-->
+<p *ngFor="let log of logs$ | async">{{ log }}</p>
+</pre>
+</div>

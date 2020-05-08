@@ -1,9 +1,6 @@
-<div style="text-align:center">
-  <h1>Welcome to nodejs-pet-project!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
-<div>Http Message: {{ hello$ | async | json }}</div>
-<div>Ws Message: {{ socketHello$ | async | json }}</div>
+<mat-toolbar>
+  <button mat-button routerLink="/">Main</button>
+  <button mat-button routerLink="/dashboard">Dashboard</button>
+  <button mat-button routerLink="/console">Console</button>
+</mat-toolbar>
+<router-outlet></router-outlet>

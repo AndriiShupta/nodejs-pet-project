@@ -31,10 +31,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^9.1.0",
+    "@angular/cdk": "9.1.0",
     "@angular/common": "^9.1.0",
     "@angular/compiler": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/flex-layout": "^9.0.0-beta.29",
     "@angular/forms": "^9.1.0",
+    "@angular/material": "9.1.0",
     "@angular/platform-browser": "^9.1.0",
     "@angular/platform-browser-dynamic": "^9.1.0",
     "@angular/router": "^9.1.0",
@@ -72,7 +75,7 @@
     "jest": "25.2.3",
     "jest-preset-angular": "8.1.2",
     "prettier": "1.19.1",
-    "ts-jest": "25.2.1",
+    "ts-jest": "^25.5.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
     "typescript": "~3.8.3"
