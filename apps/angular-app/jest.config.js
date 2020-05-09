@@ -1,7 +1,7 @@
 module.exports = {
-  name: 'nodejs-pet-project',
+  name: 'angular-app',
   preset: '../../jest.config.js',
-  coverageDirectory: '../../coverage/apps/nodejs-pet-project',
+  coverageDirectory: '../../coverage/apps/angular-app',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

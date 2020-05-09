@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-pet-project",
+  "name": "nodejs-playground",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
-    "api": "ng serve api",
+    "nest-monolith": "ng serve nest-monolith",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",

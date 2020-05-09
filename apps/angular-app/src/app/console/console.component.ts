@@ -11,7 +11,7 @@ import {
   takeUntil,
   tap
 } from 'rxjs/operators';
-import { Message } from '@nodejs-pet-project/api-interfaces';
+import { Message } from '@nodejs-playground/api-interfaces';
 import {
   merge,
   of,
@@ -19,7 +19,7 @@ import {
 } from 'rxjs';
 
 @Component({
-  selector: 'nodejs-pet-project-console',
+  selector: 'angular-app-console',
   templateUrl: './console.component.html',
   styleUrls: ['./console.component.scss']
 })
@@ -30,7 +30,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
     of({ message: 'Connecting...' }).pipe(tap(() => this.socket.emit('logs'))),
     this.socket.fromEvent('logs'),
   ).pipe(
-    map((message: Message) => `Nodejs-Pet-Project:~ fakeuswer$ ${ message.message }`),
+    map((message: Message) => `Nodejs-Playground:~ fakeuswer$ ${ message.message }`),
     scan((acc: string[], curr: string = 'curr') => {
       console.log('Current acc: ', acc);
       console.log('Current value: ', curr);

@@ -1,5 +1,5 @@
 {
-  "npmScope": "nodejs-pet-project",
+  "npmScope": "nodejs-playground",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -19,10 +19,10 @@
     }
   },
   "projects": {
-    "nodejs-pet-project": {
+    "angular-app": {
       "tags": []
     },
-    "api": {
+    "nest-monolith": {
       "tags": []
     },
     "api-interfaces": {

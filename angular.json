@@ -1,33 +1,33 @@
 {
   "version": 1,
   "projects": {
-    "nodejs-pet-project": {
+    "angular-app": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/nodejs-pet-project",
-      "sourceRoot": "apps/nodejs-pet-project/src",
-      "prefix": "nodejs-pet-project",
+      "root": "apps/angular-app",
+      "sourceRoot": "apps/angular-app/src",
+      "prefix": "angular-app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/nodejs-pet-project",
-            "index": "apps/nodejs-pet-project/src/index.html",
-            "main": "apps/nodejs-pet-project/src/main.ts",
-            "polyfills": "apps/nodejs-pet-project/src/polyfills.ts",
-            "tsConfig": "apps/nodejs-pet-project/tsconfig.app.json",
+            "outputPath": "dist/apps/angular-app",
+            "index": "apps/angular-app/src/index.html",
+            "main": "apps/angular-app/src/main.ts",
+            "polyfills": "apps/angular-app/src/polyfills.ts",
+            "tsConfig": "apps/angular-app/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/nodejs-pet-project/src/favicon.ico",
-              "apps/nodejs-pet-project/src/assets"
+              "apps/angular-app/src/favicon.ico",
+              "apps/angular-app/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/nodejs-pet-project/src/styles.scss"
+              "apps/angular-app/src/styles.scss"
             ],
             "scripts": []
           },
@@ -35,8 +35,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/nodejs-pet-project/src/environments/environment.ts",
-                  "with": "apps/nodejs-pet-project/src/environments/environment.prod.ts"
+                  "replace": "apps/angular-app/src/environments/environment.ts",
+                  "with": "apps/angular-app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -65,60 +65,60 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "nodejs-pet-project:build",
-            "proxyConfig": "apps/nodejs-pet-project/proxy.conf.json"
+            "browserTarget": "angular-app:build",
+            "proxyConfig": "apps/angular-app/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "nodejs-pet-project:build:production"
+              "browserTarget": "angular-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "nodejs-pet-project:build"
+            "browserTarget": "angular-app:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/nodejs-pet-project/tsconfig.app.json",
-              "apps/nodejs-pet-project/tsconfig.spec.json"
+              "apps/angular-app/tsconfig.app.json",
+              "apps/angular-app/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!apps/nodejs-pet-project/**"
+              "!apps/angular-app/**"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/nodejs-pet-project/jest.config.js",
-            "tsConfig": "apps/nodejs-pet-project/tsconfig.spec.json",
+            "jestConfig": "apps/angular-app/jest.config.js",
+            "tsConfig": "apps/angular-app/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "apps/nodejs-pet-project/src/test-setup.ts"
+            "setupFile": "apps/angular-app/src/test-setup.ts"
           }
         }
       }
     },
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
+    "nest-monolith": {
+      "root": "apps/nest-monolith",
+      "sourceRoot": "apps/nest-monolith/src",
       "projectType": "application",
-      "prefix": "api",
+      "prefix": "nest-monolith",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
+            "outputPath": "dist/apps/nest-monolith",
+            "main": "apps/nest-monolith/src/main.ts",
+            "tsConfig": "apps/nest-monolith/tsconfig.app.json",
             "assets": [
-              "apps/api/src/assets"
+              "apps/nest-monolith/src/assets"
             ]
           },
           "configurations": {
@@ -128,8 +128,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
+                  "replace": "apps/nest-monolith/src/environments/environment.ts",
+                  "with": "apps/nest-monolith/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -138,27 +138,27 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "api:build"
+            "buildTarget": "nest-monolith:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
+              "apps/nest-monolith/tsconfig.app.json",
+              "apps/nest-monolith/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!apps/api/**"
+              "!apps/nest-monolith/**"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "tsConfig": "apps/api/tsconfig.spec.json",
+            "jestConfig": "apps/nest-monolith/jest.config.js",
+            "tsConfig": "apps/nest-monolith/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
@@ -210,5 +210,5 @@
       "styleext": "scss"
     }
   },
-  "defaultProject": "nodejs-pet-project"
+  "defaultProject": "angular-app"
 }

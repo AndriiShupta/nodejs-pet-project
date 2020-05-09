@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nodejs-pet-project-root',
+  selector: 'angular-app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

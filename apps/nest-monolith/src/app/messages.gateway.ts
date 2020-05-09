@@ -4,7 +4,7 @@ import {
   WebSocketGateway,
   WsResponse
 } from '@nestjs/websockets';
-import { Message } from '@nodejs-pet-project/api-interfaces';
+import { Message } from '@nodejs-playground/api-interfaces';
 import {
   interval,
   Observable

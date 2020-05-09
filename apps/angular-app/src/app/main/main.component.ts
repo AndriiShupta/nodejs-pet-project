@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'nodejs-pet-project-main',
+  selector: 'angular-app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
