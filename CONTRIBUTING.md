@@ -58,8 +58,8 @@ The scope should be the name of the npm package affected (as perceived by the pe
 
 The following is the list of supported scopes:
 
-* **app**
-* **api**
+* **angular-app**
+* **nest-monolith**
 
 There are currently a few exceptions to the "use package name" rule:
 
