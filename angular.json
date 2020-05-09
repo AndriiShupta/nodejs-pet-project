@@ -104,38 +104,6 @@
         }
       }
     },
-    "nodejs-pet-project-e2e": {
-      "root": "apps/nodejs-pet-project-e2e",
-      "sourceRoot": "apps/nodejs-pet-project-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/nodejs-pet-project-e2e/cypress.json",
-            "tsConfig": "apps/nodejs-pet-project-e2e/tsconfig.e2e.json",
-            "devServerTarget": "nodejs-pet-project:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "nodejs-pet-project:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/nodejs-pet-project-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/nodejs-pet-project-e2e/**"
-            ]
-          }
-        }
-      }
-    },
     "api": {
       "root": "apps/api",
       "sourceRoot": "apps/api/src",

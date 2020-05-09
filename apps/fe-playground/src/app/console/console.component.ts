@@ -30,7 +30,7 @@ export class ConsoleComponent implements OnInit, OnDestroy {
     of({ message: 'Connecting...' }).pipe(tap(() => this.socket.emit('logs'))),
     this.socket.fromEvent('logs'),
   ).pipe(
-    map((message: Message) => `Nodejs-Pet-Project:~ fakeuser$ ${ message.message }`),
+    map((message: Message) => `Nodejs-Pet-Project:~ fakeuswer$ ${ message.message }`),
     scan((acc: string[], curr: string = 'curr') => {
       console.log('Current acc: ', acc);
       console.log('Current value: ', curr);

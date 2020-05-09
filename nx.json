@@ -22,10 +22,6 @@
     "nodejs-pet-project": {
       "tags": []
     },
-    "nodejs-pet-project-e2e": {
-      "tags": [],
-      "implicitDependencies": ["nodejs-pet-project"]
-    },
     "api": {
       "tags": []
     },
