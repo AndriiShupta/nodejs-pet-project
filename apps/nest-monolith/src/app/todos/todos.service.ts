@@ -14,9 +14,13 @@ export class TodosService {
 
   find(id: string) {}
 
-  create(todo: Todo) {}
+  async create(todo: Pick<Todo, 'content'>) {
+    return this.todoModel.create({ ...todo, state: 'initial' });
+  }
 
   update(todo: Partial<Todo>) {}
 
-  remove(id) {}
+  async remove(_id) {
+    return this.todoModel.deleteOne({ _id }).exec();
+  }
 }

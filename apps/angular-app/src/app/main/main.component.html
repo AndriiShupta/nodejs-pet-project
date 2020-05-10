@@ -1,3 +1,15 @@
-<p>main works!</p>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <h1>Todos:</h1>
 
-{{ todos$ | async | json }}
+  <mat-card [style.width]="'500px'" *ngFor="let todo of (todos$ | async)">
+    <mat-card-content fxLayoutAlign="space-between">
+      <span>{{ todo.content }}</span>
+      <mat-icon (click)="removeTodo(todo._id)">remove</mat-icon>
+    </mat-card-content>
+  </mat-card>
+
+  <form (ngSubmit)="addTodo()">
+    <input mat-input type="text" [(ngModel)]="content" [ngModelOptions]="{standalone: true}"/>
+  </form>
+  {{ content }}
+</div>

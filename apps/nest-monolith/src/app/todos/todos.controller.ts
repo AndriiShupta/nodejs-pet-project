@@ -1,7 +1,9 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
+  Param,
   Post,
   Put
 } from '@nestjs/common';
@@ -19,8 +21,8 @@ export class TodosController {
   }
 
   @Post()
-  add(body) {
-
+  async add(@Body() body) {
+    return this.todosService.create(body);
   }
 
   @Put()
@@ -28,8 +30,8 @@ export class TodosController {
 
   }
 
-  @Delete()
-  remove(body) {
-
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    return this.todosService.remove(id);
   }
 }
