@@ -47,6 +47,7 @@
     "@nestjs/websockets": "^7.0.9",
     "@nrwl/angular": "9.2.4",
     "core-js": "^2.5.4",
+    "jimp": "^0.10.3",
     "mongoose": "^5.9.13",
     "ngx-socket-io": "^3.0.1",
     "reflect-metadata": "^0.1.13",

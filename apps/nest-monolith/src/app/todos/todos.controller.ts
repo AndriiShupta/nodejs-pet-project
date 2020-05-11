@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { TodosService } from './todos.service';
+import { Todo } from './todo.schema';
 
 @Controller('todos')
 export class TodosController {
