@@ -24,7 +24,7 @@ export class DashboardComponent {
 
       return [
         { id: 'imgFlipper', title: 'Image Flipper', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
+        { id: 'express', title: 'Static Express', cols: 1, rows: 1 },
         { title: 'Card 3', cols: 1, rows: 2 },
         { title: 'Card 4', cols: 1, rows: 1 }
       ];
@@ -33,6 +33,8 @@ export class DashboardComponent {
 
   private $img = new BehaviorSubject(null);
   img$ = this.$img.asObservable();
+
+  expressHealth$ = this.httpClient.get('express/health');
 
   file;
 

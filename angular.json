@@ -87,10 +87,7 @@
               "apps/angular-app/tsconfig.app.json",
               "apps/angular-app/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/angular-app/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/angular-app/**"]
           }
         },
         "test": {
@@ -117,9 +114,7 @@
             "outputPath": "dist/apps/nest-monolith",
             "main": "apps/nest-monolith/src/main.ts",
             "tsConfig": "apps/nest-monolith/tsconfig.app.json",
-            "assets": [
-              "apps/nest-monolith/src/assets"
-            ]
+            "assets": ["apps/nest-monolith/src/assets"]
           },
           "configurations": {
             "production": {
@@ -148,10 +143,7 @@
               "apps/nest-monolith/tsconfig.app.json",
               "apps/nest-monolith/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/nest-monolith/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/nest-monolith/**"]
           }
         },
         "test": {
@@ -177,10 +169,7 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-interfaces/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
           }
         },
         "test": {
@@ -188,6 +177,61 @@
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "express-standalone": {
+      "root": "apps/express-standalone",
+      "sourceRoot": "apps/express-standalone/src",
+      "projectType": "application",
+      "prefix": "express-standalone",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/express-standalone",
+            "main": "apps/express-standalone/src/main.ts",
+            "tsConfig": "apps/express-standalone/tsconfig.app.json",
+            "assets": ["apps/express-standalone/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/express-standalone/src/environments/environment.ts",
+                  "with": "apps/express-standalone/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "express-standalone:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/express-standalone/tsconfig.app.json",
+              "apps/express-standalone/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/express-standalone/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/express-standalone/jest.config.js",
+            "tsConfig": "apps/express-standalone/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }

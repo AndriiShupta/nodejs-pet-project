@@ -16,7 +16,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div *ngIf="card.id !== 'imgFlipper'">Card Content Here</div>
+          <div *ngIf="!card.id">Card Content Here</div>
 
           <div *ngIf="card.id === 'imgFlipper'" fxLayout="row">
             <form fxLayout="column" fxLayoutAlign="center" ngForm (ngSubmit)="onSubmit()">
@@ -26,6 +26,10 @@
             </form>
             <span *ngIf="!this.file">...image placeholder...</span>
             <img *ngIf="this.file" [src]="img$ | async" width="200" height="200" />
+          </div>
+
+          <div *ngIf="card.id === 'express'">
+             Express Health: {{ expressHealth$ | async | json }}
           </div>
         </mat-card-content>
       </mat-card>
