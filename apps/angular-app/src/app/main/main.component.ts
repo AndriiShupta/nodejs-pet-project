@@ -21,7 +21,11 @@ export class MainComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.httpClient.get('microservice/command').subscribe();
+    this.httpClient.get('microservice/event').subscribe();
+    this.httpClient.get('microservice').subscribe();
+  }
 
   addTodo() {
     this.httpClient.post(`api/todos`, { content: this.content }).subscribe(

@@ -6,5 +6,9 @@
   "/express": {
     "target": "http://localhost:3000",
     "secure": false
+  },
+  "/microservice": {
+    "target": "http://localhost:3350",
+    "secure": false
   }
 }

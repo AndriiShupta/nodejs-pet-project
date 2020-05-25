@@ -236,6 +236,116 @@
           }
         }
       }
+    },
+    "nest-micro-client": {
+      "root": "apps/nest-micro-client",
+      "sourceRoot": "apps/nest-micro-client/src",
+      "projectType": "application",
+      "prefix": "nest-micro-client",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/nest-micro-client",
+            "main": "apps/nest-micro-client/src/main.ts",
+            "tsConfig": "apps/nest-micro-client/tsconfig.app.json",
+            "assets": ["apps/nest-micro-client/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/nest-micro-client/src/environments/environment.ts",
+                  "with": "apps/nest-micro-client/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "nest-micro-client:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/nest-micro-client/tsconfig.app.json",
+              "apps/nest-micro-client/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/nest-micro-client/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/nest-micro-client/jest.config.js",
+            "tsConfig": "apps/nest-micro-client/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nest-tcp-microservice": {
+      "root": "apps/nest-tcp-microservice",
+      "sourceRoot": "apps/nest-tcp-microservice/src",
+      "projectType": "application",
+      "prefix": "nest-tcp-microservice",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/nest-tcp-microservice",
+            "main": "apps/nest-tcp-microservice/src/main.ts",
+            "tsConfig": "apps/nest-tcp-microservice/tsconfig.app.json",
+            "assets": ["apps/nest-tcp-microservice/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/nest-tcp-microservice/src/environments/environment.ts",
+                  "with": "apps/nest-tcp-microservice/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "nest-tcp-microservice:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/nest-tcp-microservice/tsconfig.app.json",
+              "apps/nest-tcp-microservice/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/nest-tcp-microservice/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/nest-tcp-microservice/jest.config.js",
+            "tsConfig": "apps/nest-tcp-microservice/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -30,6 +30,12 @@
     },
     "express-standalone": {
       "tags": []
+    },
+    "nest-micro-client": {
+      "tags": []
+    },
+    "nest-tcp-microservice": {
+      "tags": []
     }
   }
 }
